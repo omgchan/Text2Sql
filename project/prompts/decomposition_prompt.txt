@@ -1,0 +1,13 @@
+Decompose the user question into a JSON object with the following keys:
+- intent: short description of user intent
+- tables: list of table names involved (only use tables that likely exist; do NOT hallucinate schema)
+- columns: list of fully qualified columns (table.column) or column names
+- filters: list of filter expressions (SQL WHERE clauses fragments)
+- joins: list of join conditions (ON clauses)
+
+Rules:
+- DO NOT generate SQL
+- DO NOT hallucinate schema (if unsure, leave tables/columns empty lists)
+- Use concise plain strings for all list items
+
+Return only valid JSON.

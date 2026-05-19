@@ -1,0 +1,18 @@
+Given the decomposition JSON input with keys `intent`, `tables`, `columns`, `filters`, and `joins`, produce a single valid PostgreSQL SELECT statement.
+
+Requirements:
+- Return ONLY the SQL statement, no explanation.
+- Use table aliases (a, b, c...) when referencing tables.
+- Use JOINs and ON clauses as provided in `joins`.
+- Use WHERE for filters.
+- Use GROUP BY when aggregation is requested in the intent.
+- Do not perform any data-modifying operations (INSERT/UPDATE/DELETE/etc.).
+
+Example:
+Decomposition: {"intent":"Retrieve orders","tables":["orders","customers"],"columns":["orders.orderNumber","customers.customerName"],"filters":["customers.country = 'Germany'"],"joins":["orders.customerNumber = customers.customerNumber"]}
+
+Output:
+SELECT o.orderNumber, c.customerName
+FROM orders o
+JOIN customers c ON o.customerNumber = c.customerNumber
+WHERE c.country = 'Germany';

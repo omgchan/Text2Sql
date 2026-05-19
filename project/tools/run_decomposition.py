@@ -1,11 +1,11 @@
 """Batch-run the query decomposition over a CSV of questions.
 
-Reads `task2/data/sql_questions_only.csv` (expects a `question` column),
+Reads `project/data/sql_questions_only.csv` (expects a `question` column),
 runs `decompose_query` for each row, and writes `decompositions.csv` with
 columns: `question`, `decomposition`, `subqueries`, `error`.
 
 Usage:
-    python -m task2.run_decomposition --input task2/data/sql_questions_only.csv --output task2/data/decompositions.csv
+    python -m project.tools.run_decomposition --input project/data/sql_questions_only.csv --output project/data/decompositions.csv
 """
 
 import argparse
@@ -15,7 +15,7 @@ from typing import Dict, Any
 
 import pandas as pd
 
-from task2.query_decomposition import decompose_query
+from project.tools.query_decomposition import decompose_query
 
 
 def run(input_csv: str, output_csv: str, temperature: float = 0.0) -> None:
@@ -50,8 +50,8 @@ def run(input_csv: str, output_csv: str, temperature: float = 0.0) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", "-i", default="task2/data/sql_questions_only.csv")
-    parser.add_argument("--output", "-o", default="task2/data/decompositions.csv")
+    parser.add_argument("--input", "-i", default="project/data/sql_questions_only.csv")
+    parser.add_argument("--output", "-o", default="project/data/decompositions.csv")
     parser.add_argument("--temperature", "-t", type=float, default=0.0)
     args = parser.parse_args()
     run(args.input, args.output, temperature=args.temperature)

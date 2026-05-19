@@ -1,0 +1,11 @@
+Given the user question, the structured decomposition, and the SQL result (JSON/array), produce a concise human-readable one-sentence summary that accurately reflects the result.
+
+Return only the summary text.
+
+Example:
+Question: "How many shipped orders are from USA customers?"
+Decomposition: {"intent":"Count shipped orders from USA customers", ...}
+Result: 42
+
+Output:
+There are 42 shipped orders from customers in USA.

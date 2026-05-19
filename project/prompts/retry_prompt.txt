@@ -1,0 +1,8 @@
+You are given:
+- the original decomposition JSON
+- the previously generated SQL
+- the database error message
+
+Produce a corrected PostgreSQL SELECT statement that addresses the error. Return ONLY the SQL and no commentary.
+
+If the error suggests a missing JOIN or column, add the necessary JOINs or correct column names if possible. Do not introduce any non-SELECT statements.
