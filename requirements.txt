@@ -1,0 +1,13 @@
+fastapi[standard]
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pydantic
+groq
+openai
+langchain
+langchain-community
+langchain-openai
+pandas
+tabulate
